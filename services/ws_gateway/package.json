@@ -1,20 +1,20 @@
 {
-  "name": "ws_gateway",
-  "version": "0.0.1",
-  "description": "",
-  "license": "MIT",
-  "type": "module",
-  "scripts": {
-    "prepare": "",
-    "dev": "tsx src/main.ts",
-    "test": "",
-    "build": "tsc -p ."
-  },
-  "dependencies": {
-    "socket.io": "4.8.1"
-  },
-  "devDependencies": {
-    "tsx": "^4.19.3",
-    "typescript": "5.7.3"
-  }
+    "name": "ws_gateway",
+    "version": "0.0.1",
+    "description": "",
+    "license": "MIT",
+    "type": "module",
+    "scripts": {
+        "prepare": "",
+        "dev": "tsx src/main.ts",
+        "test": "",
+        "build": "tsc -p ."
+    },
+    "dependencies": {
+        "socket.io": "4.8.1"
+    },
+    "devDependencies": {
+        "tsx": "^4.19.3",
+        "typescript": "5.7.3"
+    }
 }

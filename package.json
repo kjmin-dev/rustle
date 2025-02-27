@@ -1,20 +1,21 @@
 {
-  "name": "rustle",
-  "version": "0.0.1",
-  "author": "",
-  "license": "MIT",
-  "packageManager": "yarn@4.6.0",
-  "description": "Rustle Messenger",
-  "scripts": {
-    "prepare": "turbo prepare",
-    "new": "node scripts/create_new_repo.mjs",
-    "dev": "turbo dev",
-    "build": "turbo build"
-  },
-  "workspaces": [
-    "services/*"
-  ],
-  "devDependencies": {
-    "turbo": "2.4.4"
-  }
+    "name": "rustle",
+    "version": "0.0.1",
+    "author": "",
+    "license": "MIT",
+    "packageManager": "yarn@4.6.0",
+    "description": "Rustle Messenger",
+    "scripts": {
+        "prepare": "turbo prepare",
+        "new": "node scripts/create_new_repo.mjs",
+        "dev": "turbo dev",
+        "build": "turbo build"
+    },
+    "workspaces": [
+        "services/*"
+    ],
+    "devDependencies": {
+        "prettier": "^3.5.2",
+        "turbo": "2.4.4"
+    }
 }
