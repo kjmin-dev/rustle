@@ -19,3 +19,8 @@ yarn dev
 ```sh
 yarn build
 ```
+
+### Create new repo
+```sh
+yarn new
+```
