@@ -1,0 +1,19 @@
+{
+  "name": "rustle",
+  "version": "0.0.1",
+  "author": "",
+  "license": "MIT",
+  "packageManager": "yarn@4.6.0",
+  "description": "Rustle Messenger",
+  "scripts": {
+    "prepare": "turbo prepare",
+    "dev": "turbo dev",
+    "build": "turbo build"
+  },
+  "workspaces": [
+    "services/*"
+  ],
+  "devDependencies": {
+    "turbo": "2.4.4"
+  }
+}

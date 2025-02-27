@@ -1,0 +1,10 @@
+{
+    "name": "api",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "prepare": "cargo install cargo-watch",
+        "dev": "cargo watch -x run",
+        "build": "cargo build --release"
+    }
+}
