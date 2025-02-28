@@ -8,7 +8,7 @@
     "scripts": {
         "prepare": "turbo prepare",
         "new": "node scripts/create_new_repo.mjs",
-        "dev": "turbo dev",
+        "dev": "turbo dev --ui=tui",
         "build": "turbo build"
     },
     "workspaces": [
