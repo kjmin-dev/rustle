@@ -1,12 +1,12 @@
 import http from 'node:http';
-import { Server } from 'socket.io';
+import { WebSocketServer } from 'ws';
 
 const PORT = Number(process.env.PORT) || 4000;
 const httpServer = http.createServer();
-const io = new Server(httpServer);
+const wss = new WebSocketServer({ server: httpServer });
 
-io.on('connection', (socket) => {
-    console.log(`New connection ${socket.id}`);
+wss.on('connection', (socket) => {
+    console.log(`New connection from ${socket}`);
 });
 
 httpServer.listen(PORT, () => {
