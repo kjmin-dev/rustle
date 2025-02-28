@@ -2063,6 +2063,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prepare@workspace:libs/prepare":
+  version: 0.0.0-use.local
+  resolution: "prepare@workspace:libs/prepare"
+  languageName: unknown
+  linkType: soft
+
 "prettier@npm:^3.5.2":
   version: 3.5.2
   resolution: "prettier@npm:3.5.2"
