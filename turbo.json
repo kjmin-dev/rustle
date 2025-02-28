@@ -10,7 +10,8 @@
         },
         "format": {
             "dependsOn": ["^format"],
-            "outputs": ["**/*.{js,ts,json,md,rs}", "!dist/**", "!target/**", "!node_modules/**"]
+            "outputs": ["**/*.{js,ts,json,md,rs}", "!dist/**", "!target/**", "!node_modules/**"],
+            "cache": false
         },
         "dev": {
             "persistent": true,
