@@ -9,10 +9,12 @@
         "prepare": "turbo prepare",
         "new": "node scripts/create_new_repo.mjs",
         "dev": "turbo dev --ui=tui",
-        "build": "turbo build"
+        "build": "turbo build",
+        "format": "turbo format"
     },
     "workspaces": [
-        "services/*"
+        "services/*",
+        "libs/*"
     ],
     "devDependencies": {
         "prettier": "^3.5.2",

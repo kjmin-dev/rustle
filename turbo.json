@@ -8,6 +8,10 @@
             "dependsOn": ["^build"],
             "outputs": ["dist/**", "target/**", "node_modules/**"]
         },
+        "format": {
+            "dependsOn": ["^format"],
+            "outputs": ["**/*.{js,ts,json,md,rs}"]
+        },
         "dev": {
             "persistent": true,
             "cache": false

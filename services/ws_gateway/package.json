@@ -8,7 +8,8 @@
         "prepare": "",
         "dev": "tsx watch src/main.ts",
         "test": "",
-        "build": "tsc -p ."
+        "build": "tsc -p .",
+        "format": "prettier --write ."
     },
     "dependencies": {
         "ws": "^8.18.1"

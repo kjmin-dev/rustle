@@ -1,0 +1,14 @@
+{
+    "name": "prepare",
+    "version": "0.0.1",
+    "description": "Prepare",
+    "license": "MIT",
+    "scripts": {
+        "prepare": "sh scripts/prepare.sh",
+        "dev": "",
+        "test": "",
+        "build": ""
+    },
+    "dependencies": {},
+    "devDependencies": {}
+}

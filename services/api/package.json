@@ -3,8 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "scripts": {
-        "prepare": "cargo install cargo-watch",
+        "prepare": "",
         "dev": "cargo watch -x run",
-        "build": "cargo build --release"
+        "build": "cargo build --release",
+        "format": "cargo fmt"
     }
 }
