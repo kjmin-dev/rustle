@@ -1,7 +1,7 @@
 import http from 'node:http';
 import { WebSocketServer } from 'ws';
 
-const PORT = Number(process.env.PORT) || 4000;
+const PORT = Number(process.env.PORT) || 3100;
 const httpServer = http.createServer();
 const wss = new WebSocketServer({ server: httpServer });
 

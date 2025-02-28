@@ -6,7 +6,7 @@
     "type": "module",
     "scripts": {
         "prepare": "",
-        "dev": "tsx src/main.ts",
+        "dev": "tsx watch src/main.ts",
         "test": "",
         "build": "tsc -p ."
     },
