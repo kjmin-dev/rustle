@@ -3,10 +3,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import readline from 'node:readline';
-import { fileURLToPath } from 'node:url';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const rootDir = path.join(__dirname, '..');
+import { ROOT_DIR } from './lib/directory.mjs';
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -27,7 +24,7 @@ async function createNewRepo() {
 
         // Get user input
         const repoName = await question('Enter repository name: ');
-        const repoPath = path.join(rootDir, repoName);
+        const repoPath = path.join(ROOT_DIR, repoName);
 
         // Check if directory already exists
         try {

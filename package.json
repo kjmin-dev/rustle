@@ -5,18 +5,22 @@
     "license": "MIT",
     "packageManager": "yarn@4.6.0",
     "description": "Rustle Messenger",
+    "type": "module",
     "scripts": {
         "prepare": "turbo prepare",
         "new": "node scripts/create_new_repo.mjs",
         "dev": "turbo dev --ui=tui",
         "build": "turbo build",
-        "format": "turbo format"
+        "format": "turbo format",
+        "dockerize": "node scripts/dockerize.mjs"
     },
     "workspaces": [
         "services/*",
         "libs/*"
     ],
     "devDependencies": {
+        "chalk": "^5.4.1",
+        "commander": "^13.1.0",
         "prettier": "^3.5.2",
         "turbo": "2.4.4"
     }

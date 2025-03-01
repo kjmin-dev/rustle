@@ -2,32 +2,38 @@
 
 # Getting Started
 
-### Setup node.js
+### Set up Node.js
 
 ```sh
-nvm install # Install node.js version defined in .nvmrc
+nvm install # Install Node.js version defined in .nvmrc
 ```
 
-### Run prepare: execute prepare script for each repos
+### Run prepare: Execute prepare script for each repository
 
 ```sh
 yarn prepare
 ```
 
-### Run dev: run all repos
+### Run dev: Start all repositories
 
 ```sh
 yarn dev
 ```
 
-### Run build: build all repos
+### Run build: Build all repositories
 
 ```sh
 yarn build
 ```
 
-### Create new repo
+### Create a new repository
 
 ```sh
 yarn new
+```
+
+### Run dockerize to build Docker images
+
+```sh
+yarn dockerize --help # Follow the guide
 ```
