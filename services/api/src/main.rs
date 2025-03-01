@@ -1,8 +1,14 @@
 use axum::{Router, routing::get};
 use std::env;
+use tracing::{info, error, warn, debug, Level};
 
 #[tokio::main]
 async fn main() {
+    tracing_subscriber::fmt()
+        .with_target(false)
+        .compact()
+        .init();
+
     let app = Router::new().route("/", get(|| async { "Hello, World!" }));
     let host = env::var("HOST").unwrap_or("0.0.0.0".to_string());
     let port = env::var("PORT").unwrap_or("3000".to_string());
@@ -11,6 +17,9 @@ async fn main() {
     let listener = tokio::net::TcpListener::bind(format!("{}:{}", host, port))
         .await
         .unwrap();
+    let local_addr = listener.local_addr().unwrap();
+    let server = axum::serve(listener, app);
 
-    axum::serve(listener, app).await.unwrap();
+    info!("API Server is running on {}", local_addr);
+    server.await.unwrap();
 }
