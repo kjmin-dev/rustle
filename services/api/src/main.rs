@@ -36,7 +36,10 @@ async fn main() {
                     port
                 );
             } else if err.kind() == std::io::ErrorKind::PermissionDenied {
-                error!("Permission denied when binding to port {}. Try using a port number > 1024 or run with elevated privileges.", port);
+                error!(
+                    "Permission denied when binding to port {}. Try using a port number > 1024 or run with elevated privileges.",
+                    port
+                );
             } else {
                 error!("Failed to bind to {}: {:?}", addr, err);
             }
