@@ -1,7 +1,7 @@
 use std::env;
 use std::sync::Arc;
 use tokio::sync::oneshot;
-use tracing::{info, error, warn};
+use tracing::{error, info, warn};
 use tracing_subscriber::EnvFilter;
 mod router;
 
@@ -31,7 +31,10 @@ async fn main() {
         Ok(listener) => listener,
         Err(err) => {
             if err.kind() == std::io::ErrorKind::AddrInUse {
-                error!("Port {} is already in use. Try using a different port.", port);
+                error!(
+                    "Port {} is already in use. Try using a different port.",
+                    port
+                );
             } else if err.kind() == std::io::ErrorKind::PermissionDenied {
                 error!("Permission denied when binding to port {}. Try using a port number > 1024 or run with elevated privileges.", port);
             } else {
@@ -48,7 +51,7 @@ async fn main() {
     });
 
     info!("API Server is running on {}", local_addr);
-    
+
     if let Err(err) = server.await {
         error!("Server error: {:?}", err);
     }
@@ -65,5 +68,6 @@ fn setup_signal_handlers(shutdown_tx: Arc<std::sync::Mutex<Option<oneshot::Sende
             warn!("Forced shutdown initiated. Some operations may not complete properly.");
             std::process::exit(1);
         }
-    }).expect("Error setting Ctrl-C handler");
+    })
+    .expect("Error setting Ctrl-C handler");
 }
