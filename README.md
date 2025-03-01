@@ -36,4 +36,5 @@ yarn new
 
 ```sh
 yarn dockerize --help # Follow the guide
+yarn dockerize services/api # Build `services/api` into a Docker image
 ```
