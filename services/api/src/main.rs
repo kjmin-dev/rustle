@@ -1,5 +1,7 @@
 use std::env;
-use tracing::{info, error};
+use std::sync::Arc;
+use tokio::sync::oneshot;
+use tracing::{info, error, warn};
 use tracing_subscriber::EnvFilter;
 mod router;
 
@@ -14,6 +16,11 @@ async fn main() {
         .with_target(false)
         .compact()
         .init();
+
+    // Channel for shutdown signal
+    let (shutdown_tx, shutdown_rx) = oneshot::channel::<()>();
+    let shutdown_tx = Arc::new(std::sync::Mutex::new(Some(shutdown_tx)));
+    setup_signal_handlers(Arc::clone(&shutdown_tx));
 
     let app = router::create_app();
     let host = env::var("HOST").unwrap_or("0.0.0.0".to_string());
@@ -35,8 +42,28 @@ async fn main() {
     };
 
     let local_addr = listener.local_addr().unwrap();
-    let server = axum::serve(listener, app);
+    let server = axum::serve(listener, app).with_graceful_shutdown(async {
+        // Wait for shutdown signal
+        let _ = shutdown_rx.await;
+    });
 
     info!("API Server is running on {}", local_addr);
-    server.await.unwrap();
+    
+    if let Err(err) = server.await {
+        error!("Server error: {:?}", err);
+    }
+    info!("Server has been gracefully shut down");
+}
+
+fn setup_signal_handlers(shutdown_tx: Arc<std::sync::Mutex<Option<oneshot::Sender<()>>>>) {
+    ctrlc::set_handler(move || {
+        let mut tx_guard = shutdown_tx.lock().unwrap();
+        if let Some(tx) = tx_guard.take() {
+            info!("Received termination signal, shutting down gracefully...");
+            let _ = tx.send(());
+        } else {
+            warn!("Forced shutdown initiated. Some operations may not complete properly.");
+            std::process::exit(1);
+        }
+    }).expect("Error setting Ctrl-C handler");
 }
