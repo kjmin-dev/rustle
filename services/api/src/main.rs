@@ -1,6 +1,6 @@
-use axum::{Router, routing::get};
 use std::env;
-use tracing::{info, error, warn, debug, Level};
+use tracing::{info};
+mod router;
 
 #[tokio::main]
 async fn main() {
@@ -9,7 +9,7 @@ async fn main() {
         .compact()
         .init();
 
-    let app = Router::new().route("/", get(|| async { "Hello, World!" }));
+    let app = router::create_app();
     let host = env::var("HOST").unwrap_or("0.0.0.0".to_string());
     let port = env::var("PORT").unwrap_or("3000".to_string());
 
