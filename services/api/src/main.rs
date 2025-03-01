@@ -1,10 +1,16 @@
 use std::env;
 use tracing::{info};
+use tracing_subscriber::EnvFilter;
 mod router;
 
 #[tokio::main]
 async fn main() {
     tracing_subscriber::fmt()
+        .with_env_filter(
+            EnvFilter::try_from_default_env()
+                .or_else(|_| EnvFilter::try_new("info,axum_tracing_example=error,tower_http=warn"))
+                .unwrap(),
+        )
         .with_target(false)
         .compact()
         .init();

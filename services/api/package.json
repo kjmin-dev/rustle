@@ -4,7 +4,7 @@
     "private": true,
     "scripts": {
         "prepare": "",
-        "dev": "cargo watch -x run",
+        "dev": "RUST_LOG=info,axum_tracing_example=debug,tower_http=debug cargo watch -x run",
         "build": "cargo build --release",
         "format": "cargo fmt"
     }
