@@ -1,5 +1,5 @@
 use std::env;
-use tracing::{info};
+use tracing::{info, error};
 use tracing_subscriber::EnvFilter;
 mod router;
 
@@ -19,10 +19,21 @@ async fn main() {
     let host = env::var("HOST").unwrap_or("0.0.0.0".to_string());
     let port = env::var("PORT").unwrap_or("3000".to_string());
 
-    // run our app with hyper, listening globally on port 3000
-    let listener = tokio::net::TcpListener::bind(format!("{}:{}", host, port))
-        .await
-        .unwrap();
+    let addr = format!("{}:{}", host, port);
+    let listener = match tokio::net::TcpListener::bind(&addr).await {
+        Ok(listener) => listener,
+        Err(err) => {
+            if err.kind() == std::io::ErrorKind::AddrInUse {
+                error!("Port {} is already in use. Try using a different port.", port);
+            } else if err.kind() == std::io::ErrorKind::PermissionDenied {
+                error!("Permission denied when binding to port {}. Try using a port number > 1024 or run with elevated privileges.", port);
+            } else {
+                error!("Failed to bind to {}: {:?}", addr, err);
+            }
+            std::process::exit(1);
+        }
+    };
+
     let local_addr = listener.local_addr().unwrap();
     let server = axum::serve(listener, app);
 
