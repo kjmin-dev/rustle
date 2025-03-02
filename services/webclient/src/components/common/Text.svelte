@@ -4,52 +4,65 @@ import type { Snippet } from 'svelte';
 export const validTags = ['p', 'span', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div'] as const;
 export type TagName = (typeof validTags)[number];
 
-export const variants = ['headline', 'title', 'subtitle', 'body', 'caption', 'button'] as const;
-export type VariantType = (typeof variants)[number];
-
 export const colors = ['default', 'primary', 'secondary', 'error', 'success', 'warning'] as const;
 export type ColorType = (typeof colors)[number];
 
-export const aligns = ['left', 'center', 'right', 'justify'] as const;
+export const aligns = ['left', 'center', 'right'] as const;
 export type AlignType = (typeof aligns)[number];
 
 export const weights = ['regular', 'medium', 'bold'] as const;
 export type WeightType = (typeof weights)[number];
 
+export const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
+export type SizeType = (typeof sizes)[number];
+
+export const cases = ['uppercase', 'lowercase', 'capitalize'] as const;
+export type CaseType = (typeof cases)[number];
+
 export interface TextProps {
     tag?: TagName;
-    variant?: VariantType;
     color?: ColorType;
     align?: AlignType;
     weight?: WeightType;
     italic?: boolean;
     underline?: boolean;
-    uppercase?: boolean;
     truncate?: boolean;
     maxLines?: number;
     className?: string;
+    size?: SizeType;
+    case?: CaseType;
     children: Snippet;
 }
 </script>
 
 <script lang="ts">
 const props: TextProps = $props();
-let tag: TagName = props.tag && validTags.includes(props.tag) ? props.tag : 'p';
-let variant = props.variant || 'body';
-let color = props.color || 'default';
-let align = props.align || 'left';
-let weight = props.weight || 'regular';
+const tag: TagName = props.tag && validTags.includes(props.tag) ? props.tag : 'p';
+const color = props.color || 'default';
+const align = props.align || 'left';
+const weight = props.weight || 'regular';
+const size = props.size || 'md';
+
+// 색상 매핑 정의
+const colorClasses = {
+    default: 'text-gray-800 dark:text-gray-200',
+    primary: 'text-primary-600 dark:text-primary-400',
+    secondary: 'text- dark:text-secondary-400',
+    error: 'text-error-600 dark:text-error-400',
+    success: 'text-success-600 dark:text-success-400',
+    warning: 'text-warning-600 dark:text-warning-400',
+};
 
 // 클래스 계산
 let classes = [
-    `text-variant-${variant}`,
-    `text-color-${color}`,
-    `text-align-${align}`,
-    `text-weight-${weight}`,
-    props.italic ? 'text-italic' : '',
-    props.underline ? 'text-underline' : '',
-    props.uppercase ? 'text-uppercase' : '',
-    props.truncate ? 'text-truncate' : '',
+    colorClasses[color],
+    `text-${align}`,
+    `font-${weight}`,
+    `text-${size}`,
+    props.italic ? 'italic' : '',
+    props.underline ? 'underline' : '',
+    props.truncate ? 'truncate' : '',
+    props.case ? props.case : '',
     props.className || '',
 ]
     .filter(Boolean)
@@ -64,13 +77,6 @@ let styles = props.maxLines ? `--max-lines: ${props.maxLines};` : '';
 </svelte:element>
 
 <style>
-/* 기본 스타일 */
-:global(.text-truncate) {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 :global([style*='--max-lines']) {
     display: -webkit-box;
     line-clamp: var(--max-lines);
@@ -80,42 +86,4 @@ let styles = props.maxLines ? `--max-lines: ${props.maxLines};` : '';
     overflow: hidden;
     white-space: normal;
 }
-
-/* 정렬 스타일 */
-:global(.text-align-left) {
-    text-align: left;
-}
-:global(.text-align-center) {
-    text-align: center;
-}
-:global(.text-align-right) {
-    text-align: right;
-}
-:global(.text-align-justify) {
-    text-align: justify;
-}
-
-/* 폰트 스타일 */
-:global(.text-italic) {
-    font-style: italic;
-}
-:global(.text-underline) {
-    text-decoration: underline;
-}
-:global(.text-uppercase) {
-    text-transform: uppercase;
-}
-
-/* 폰트 두께 */
-:global(.text-weight-regular) {
-    font-weight: 400;
-}
-:global(.text-weight-medium) {
-    font-weight: 500;
-}
-:global(.text-weight-bold) {
-    font-weight: 700;
-}
-
-/* 여기에 variant와 color에 대한 스타일을 추가할 수 있습니다 */
 </style>
