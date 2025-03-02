@@ -1,42 +1,22 @@
-#root {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
-    text-align: center;
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+@plugin 'flowbite/plugin';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary-50: #fff5f2;
+    --color-primary-100: #fff1ee;
+    --color-primary-200: #ffe4de;
+    --color-primary-300: #ffd5cc;
+    --color-primary-400: #ffbcad;
+    --color-primary-500: #fe795d;
+    --color-primary-600: #ef562f;
+    --color-primary-700: #eb4f27;
+    --color-primary-800: #cc4522;
+    --color-primary-900: #a5371b;
 }
 
-.logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
-}
-.logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-    filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    a:nth-of-type(2) .logo {
-        animation: logo-spin infinite 20s linear;
-    }
-}
-
-.card {
-    padding: 2em;
-}
-
-.read-the-docs {
-    color: #888;
-}
+@source "../node_modules/flowbite-svelte/dist";
+@source "../../../node_modules/flowbite-svelte/dist";
