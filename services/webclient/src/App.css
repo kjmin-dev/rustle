@@ -18,5 +18,11 @@
     --color-primary-900: #a5371b;
 }
 
+@layer components {
+    body {
+        @apply bg-white dark:bg-slate-900;
+    }
+}
+
 @source "../node_modules/flowbite-svelte/dist";
 @source "../../../node_modules/flowbite-svelte/dist";
