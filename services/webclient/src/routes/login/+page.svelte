@@ -1,6 +1,7 @@
 <script lang="ts">
 import { Button, Card, Input } from 'flowbite-svelte';
 import { onMount } from 'svelte';
+import { OAUTH_CLIENT_ID_GOOGLE } from '../../utils/env';
 type IdConfigurationCallback = google.accounts.id.IdConfiguration['callback'];
 interface TokenPayload {
     name: string;
@@ -13,13 +14,12 @@ const handleCredentialResponse: IdConfigurationCallback = (response) => {
     console.log('Google Login Response: ', response);
     console.log('Google Login Token: ', token);
 };
-
 const LOGIN_BUTTON_SIZE = 240;
 const LOGIN_BUTTON_WIDTH = `w-[240px]`;
 
 onMount(() => {
     window.google.accounts.id.initialize({
-        client_id: '692162839381-hlplf4v33nrditorpodtgn54ta3gmbgk.apps.googleusercontent.com',
+        client_id: OAUTH_CLIENT_ID_GOOGLE,
         callback: handleCredentialResponse,
         ux_mode: 'popup',
     });
@@ -27,6 +27,7 @@ onMount(() => {
         theme: 'filled_black',
         size: 'large',
         type: 'standard',
+        text: 'continue_with',
         width: LOGIN_BUTTON_SIZE,
     });
     window.google.accounts.id.prompt();

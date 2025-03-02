@@ -1,0 +1,1 @@
+export const OAUTH_CLIENT_ID_GOOGLE:string = import.meta.env.VITE_OAUTH_CLIENT_ID_GOOGLE;
