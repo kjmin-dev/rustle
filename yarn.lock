@@ -4672,6 +4672,7 @@ __metadata:
     commander: "npm:^13.1.0"
     prettier: "npm:^3.5.2"
     prettier-plugin-svelte: "npm:^3.3.3"
+    prettier-plugin-tailwindcss: "npm:^0.6.11"
     turbo: "npm:2.4.4"
   languageName: unknown
   linkType: soft
@@ -5690,7 +5691,6 @@ __metadata:
     jsdom: "npm:^26.0.0"
     mdsvex: "npm:^0.12.3"
     postcss: "npm:^8.5.3"
-    prettier-plugin-tailwindcss: "npm:^0.6.11"
     svelte: "npm:^5.20.5"
     svelte-check: "npm:^4.1.4"
     tailwindcss: "npm:^4.0.9"

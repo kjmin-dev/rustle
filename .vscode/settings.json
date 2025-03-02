@@ -1,0 +1,30 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": false,
+    "editor.codeActionsOnSave": {
+        "source.sortImports": "always"
+    },
+    "editor.formatOnSaveMode": "file",
+    "[rust]": {
+        "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "svelte.svelte-vscode"
+    },
+    "search.exclude": {
+        "**/.yarn": true,
+        "**/.pnp.*": true,
+        "**/.git": true,
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/target": true,
+        "**/build": true
+    },
+    "eslint.workingDirectories": [
+        {
+            "mode": "auto"
+        }
+    ],
+    "typescript.tsdk": "node_modules/typescript/lib"
+}
