@@ -4284,6 +4284,16 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"prettier-plugin-svelte@npm:^3.3.3":
+  version: 3.3.3
+  resolution: "prettier-plugin-svelte@npm:3.3.3"
+  peerDependencies:
+    prettier: ^3.0.0
+    svelte: ^3.2.0 || ^4.0.0-next.0 || ^5.0.0-next.0
+  checksum: 10c0/5e0a73d7ef2385dc26bbc2c679dd3c2d6a5b73eb32b6aab5cafde816eff7de91c4d32f4fb192ef37a21345ca3dd94e6a9e31c8ad4ee34a797d78bc7da8f76216
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^3.5.2":
   version: 3.5.2
   resolution: "prettier@npm:3.5.2"
@@ -4603,6 +4613,7 @@ __metadata:
     chalk: "npm:^5.4.1"
     commander: "npm:^13.1.0"
     prettier: "npm:^3.5.2"
+    prettier-plugin-svelte: "npm:^3.3.3"
     turbo: "npm:2.4.4"
   languageName: unknown
   linkType: soft

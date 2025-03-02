@@ -1,4 +1,5 @@
 {
+    "plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-svelte"],
     "printWidth": 120,
     "tabWidth": 4,
     "useTabs": false,
@@ -7,8 +8,12 @@
     "arrowParens": "always",
     "semi": true,
     "bracketSpacing": true,
-    "jsxBracketSameLine": false,
-    "jsxSingleQuote": false,
+    "bracketSameLine": true,
+    "jsxSingleQuote": true,
     "quoteProps": "as-needed",
-    "endOfLine": "auto"
+    "endOfLine": "auto",
+    "svelteBracketNewLine": false,
+    "svelteAllowShorthand": false,
+    "svelteIndentScriptAndStyle": false,
+    "svelteStrictMode": true
 }
