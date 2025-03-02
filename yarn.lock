@@ -1585,6 +1585,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/google.accounts@npm:^0.0.15":
+  version: 0.0.15
+  resolution: "@types/google.accounts@npm:0.0.15"
+  checksum: 10c0/678c1a9fa5b51249d5b1e3516d7fa3dd506bec37284eb838262412616ad229086779e9efa4fbfdb79024e1107556ad35b961162b5c75fda60181b1ace3bcafda
+  languageName: node
+  linkType: hard
+
 "@types/jsonwebtoken@npm:^9.0.0":
   version: 9.0.9
   resolution: "@types/jsonwebtoken@npm:9.0.9"
@@ -5606,6 +5613,7 @@ __metadata:
     "@tailwindcss/vite": "npm:^4.0.9"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@testing-library/svelte": "npm:^5.2.7"
+    "@types/google.accounts": "npm:^0.0.15"
     alova: "npm:^3.2.9"
     flowbite: "npm:^3.1.2"
     flowbite-svelte: "npm:^0.48.4"

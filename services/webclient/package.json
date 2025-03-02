@@ -25,6 +25,7 @@
         "@tailwindcss/vite": "^4.0.9",
         "@testing-library/jest-dom": "^6.6.3",
         "@testing-library/svelte": "^5.2.7",
+        "@types/google.accounts": "^0.0.15",
         "flowbite": "^3.1.2",
         "flowbite-svelte": "^0.48.4",
         "flowbite-svelte-icons": "^2.0.2",
