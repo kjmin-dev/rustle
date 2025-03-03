@@ -1,6 +1,7 @@
 <script lang="ts">
 import { Button, Card, Input } from 'flowbite-svelte';
 import { onMount } from 'svelte';
+import Text from '../../components/common/Text.svelte';
 import { OAUTH_CLIENT_ID_GOOGLE } from '../../utils/env';
 type IdConfigurationCallback = google.accounts.id.IdConfiguration['callback'];
 interface TokenPayload {
@@ -36,14 +37,14 @@ onMount(() => {
 
 <div class="flex flex-col items-center justify-center h-screen w-screen">
     <Card class="items-center justify-center gap-2">
-        <h2 class="text-2xl text-gray-200 font-bold">Login to Rustle</h2>
-        <h5 class="text-sm text-gray-300 mb-2">We're so excited to see you again!</h5>
+        <Text tag="h2" size="2xl" weight="bold">Login to Rustle</Text>
+        <Text tag="h5" size="sm" weight="regular">We're so excited to see you again!</Text>
         <Input type="email" placeholder="Email" />
         <Input type="password" placeholder="Password" />
-        <Button class="w-full cursor-pointer">Login</Button>
+        <Button class="w-full cursor-pointer" color="primary">Login</Button>
         <div id="login-google" class={[LOGIN_BUTTON_WIDTH, 'mt-4 overflow-hidden']}></div>
-        <p class="text-sm text-gray-300">
+        <Text size="sm">
             Don't have an account? <a href="/signup" class="text-blue-500">Sign up</a>
-        </p>
+        </Text>
     </Card>
 </div>
