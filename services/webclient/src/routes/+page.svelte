@@ -1,8 +1,9 @@
 <script lang="ts">
+import Text from '../components/common/Text.svelte';
 import TopNav from '../components/common/TopNav.svelte';
 </script>
 
 <TopNav />
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<Text tag="h1" size="2xl" weight="bold">Welcome to SvelteKit</Text>
+<Text tag="p">Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</Text>

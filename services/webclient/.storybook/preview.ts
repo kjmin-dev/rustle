@@ -9,6 +9,12 @@ const preview: Preview = {
                 date: /Date$/i,
             },
         },
+        darkMode: {
+            stylePreview: true,
+            darkClass: 'dark',
+            lightClass: 'light',
+        },
+        backgrounds: { disable: true },
     },
 };
 
