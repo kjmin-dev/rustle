@@ -4889,6 +4889,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jose@npm:^6.0.8":
+  version: 6.0.8
+  resolution: "jose@npm:6.0.8"
+  checksum: 10c0/ab795679225a72eafef31e2d8aefa8196de9917e9f6c76c997963e617fba86762c19c6713c83d836adb28854d99fbd6547c83d825585094be29f0d6f9712f6cd
+  languageName: node
+  linkType: hard
+
 "joycon@npm:^3.1.1":
   version: 3.1.1
   resolution: "joycon@npm:3.1.1"
@@ -8089,6 +8096,7 @@ __metadata:
     flowbite: "npm:^3.1.2"
     flowbite-svelte: "npm:^0.48.4"
     flowbite-svelte-icons: "npm:^2.0.2"
+    jose: "npm:^6.0.8"
     jsdom: "npm:^26.0.0"
     mdsvex: "npm:^0.12.3"
     playwright: "npm:^1.50.1"

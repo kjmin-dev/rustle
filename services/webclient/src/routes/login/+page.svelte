@@ -1,19 +1,15 @@
 <script lang="ts">
 import { Button, Card, Input } from 'flowbite-svelte';
+import { decodeJwt } from 'jose';
 import { onMount } from 'svelte';
 import Text from '../../components/common/Text.svelte';
+import type { GoogleAuth } from '../../types/Auth';
 import { OAUTH_CLIENT_ID_GOOGLE } from '../../utils/env';
-type IdConfigurationCallback = google.accounts.id.IdConfiguration['callback'];
-interface TokenPayload {
-    name: string;
-    email: string;
-    picture: string;
-}
-let user: TokenPayload | null = null;
-const handleCredentialResponse: IdConfigurationCallback = (response) => {
+
+const handleCredentialResponse: GoogleAuth.IdConfigurationCallback = (response) => {
     const token = response.credential;
-    console.log('Google Login Response: ', response);
-    console.log('Google Login Token: ', token);
+    const payload = decodeJwt<GoogleAuth.TokenPayload>(token);
+    console.log('Google Login Payload: ', payload);
 };
 const LOGIN_BUTTON_SIZE = 240;
 const LOGIN_BUTTON_WIDTH = `w-[240px]`;
@@ -23,6 +19,7 @@ onMount(() => {
         client_id: OAUTH_CLIENT_ID_GOOGLE,
         callback: handleCredentialResponse,
         ux_mode: 'popup',
+        context: 'use',
     });
     window.google.accounts.id.renderButton(document.getElementById('login-google')!, {
         theme: 'filled_black',

@@ -58,6 +58,7 @@
         "@inlang/paraglide-sveltekit": "^0.16.0",
         "alova": "^3.2.9",
         "clsx": "^2.1.1",
+        "jose": "^6.0.8",
         "zustand": "^5.0.3"
     }
 }
