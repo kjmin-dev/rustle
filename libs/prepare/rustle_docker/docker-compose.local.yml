@@ -23,7 +23,7 @@ services:
     local_minio:
         image: minio/minio:latest
         container_name: minio-node
-        command: server /data --console-address ":9001"
+        command: 'server /data --console-address ":9001"'
         environment:
             - MINIO_ROOT_USER=localminio
             - MINIO_ROOT_PASSWORD=localpassword
@@ -37,8 +37,19 @@ services:
             retries: 5
         volumes:
             - minio-data:/data
+    local_dynamodb:
+        command: '-jar DynamoDBLocal.jar -sharedDb -dbPath ./data'
+        image: amazon/dynamodb-local:latest
+        container_name: dynamodb-local
+        ports:
+            - '8000:8000'
+        volumes:
+            - dynamodb-data:/home/dynamodblocal/data
+        working_dir: /home/dynamodblocal
 volumes:
     scylla-data:
         driver: local
     minio-data:
+        driver: local
+    dynamodb-data:
         driver: local
