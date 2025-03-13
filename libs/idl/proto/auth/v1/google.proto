@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package auth.v1;
+
+message GoogleTokenPayload {
+  string iss = 1;
+  string azp = 2;
+  string aud = 3;
+  string sub = 4;
+  string email = 5;
+  bool email_verified = 6;
+  int64 nbf = 7;
+  string name = 8;
+  string picture = 9;
+  string given_name = 10;
+  string family_name = 11;
+  int64 iat = 12;
+  int64 exp = 13;
+  string jti = 14;
+}

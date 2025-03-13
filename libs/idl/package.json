@@ -1,0 +1,17 @@
+{
+    "name": "idl",
+    "version": "0.0.1",
+    "description": "Shared IDLs",
+    "scripts": {
+        "prepare": "npm run build",
+        "dev": "",
+        "test": "",
+        "build": "buf generate && tsc",
+        "format": "buf format --write",
+        "lint": "buf lint"
+    },
+    "devDependencies": {
+        "@bufbuild/buf": "^1.50.1",
+        "@bufbuild/protobuf": "^2.2.3"
+    }
+}
